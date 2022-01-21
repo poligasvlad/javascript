@@ -89,20 +89,19 @@ document.addEventListener('DOMContentLoaded', () =>{
 
 //Modal
 
-    const modalTrigger = document.querySelectorAll('[data-modal]'),
-      modal = document.querySelector('.modal'),
-      modalCloseBtn = document.querySelector ('[data-close]');
-
+    const modalTrigger = document.querySelectorAll('button[data-modal]')
+    const modal = document.querySelector('.modal')
+    const modalCloseBtn = document.querySelector ('[data-close]');
 
       modalTrigger.forEach (btn => {
           btn.addEventListener('click', () =>{
-            modal.style.display="block"; 
+            modal.classList.add('show');
             document.body.style.overflow = 'hidden';
           })
       })
 
       function closeModal(){ 
-        modal.style.display="none";    
+        modal.classList.remove('show')   
         document.body.style.overflow = 'auto';
       }
       modalCloseBtn.addEventListener('click', closeModal);
